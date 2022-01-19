@@ -1,4 +1,6 @@
-<h2>Books</h2>
+<%= render 'list', book: @book, user: @user %>
+
+<h2>Books detail</h2>
 <table>
   <thead>
     <tr>
@@ -17,6 +19,14 @@
         <% end %>
       </td>
       <td><%= @book.body %></td>
+      <% if @book.user == current_user %>
+        <td>
+          <%= link_to "Edit", edit_book_path %>
+        </td>
+        <td>
+          <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        </td>
+      <% end %>
     </tr>
   </tbody>
 </table>
