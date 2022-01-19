@@ -10,8 +10,12 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= image_tag @book.get_image %></td>
-      <td><%= @book.title %></td>
+      <td><%= image_tag @book.user.get_profile_image("100x100") %></td>
+      <td>
+        <%= link_to book_path(@book.id) do %>
+          <%= @book.title %>
+        <% end %>
+      </td>
       <td><%= @book.body %></td>
     </tr>
   </tbody>
